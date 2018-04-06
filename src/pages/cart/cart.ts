@@ -15,8 +15,9 @@ import { AngularFireDatabase } from "angularfire2/database";
 })
 export class CartPage {
   username:string="";
-  slides=[];
-  carts=[];
+  slides:any=[];
+  carts:any=[];
+  total;
 
   constructor(public db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController) {
   }
@@ -37,11 +38,16 @@ export class CartPage {
       this.slides=data;
     });
     this.db.object('/user/'+this.username+'/cart').valueChanges().subscribe(data => {
+      this.total=0;
       if(data==null){
         this.carts=[];
       }
       else{
         this.carts=data;
+        for (let cart in this.carts) {
+          this.total=this.total+this.slides[cart].price;
+          console.log(cart);
+        }
       }
       console.log(data);
     });

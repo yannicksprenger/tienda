@@ -31,6 +31,9 @@
         </ion-avatar>
         <h2>{{slide.title}}</h2>
         <p>{{slide.description}}</p>
+        <ion-item-divider>
+            ${{slide.price}}
+        </ion-item-divider>
       </ion-item>
       <ion-item-options side="left">
         <button (click)="SendCart(i)" ion-button color="primary">

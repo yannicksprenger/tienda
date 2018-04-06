@@ -16,7 +16,7 @@ import { CartPage } from '../cart/cart';
 })
 export class ItemsPage  implements OnInit {
   username:string="";
-  slides=[];
+  slides:any=[];
 
   constructor(public db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController) {
   }
