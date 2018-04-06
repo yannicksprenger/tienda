@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ItemsPage } from '../pages/items/items';
+import { CartPage } from '../pages/cart/cart';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ var config = {
     MyApp,
     HomePage,
     ListPage,
-    ItemsPage
+    ItemsPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ var config = {
     MyApp,
     HomePage,
     ListPage,
-    ItemsPage
+    ItemsPage,
+    CartPage
   ],
   providers: [
     StatusBar,

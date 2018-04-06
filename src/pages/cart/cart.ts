@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireDatabase } from "angularfire2/database"; 
-import { CartPage } from '../cart/cart';
 /**
- * Generated class for the ItemsPage page.
+ * Generated class for the CartPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,41 +10,41 @@ import { CartPage } from '../cart/cart';
 
 @IonicPage()
 @Component({
-  selector: 'page-items',
-  templateUrl: 'items.html',
+  selector: 'page-cart',
+  templateUrl: 'cart.html',
 })
-export class ItemsPage  implements OnInit {
+export class CartPage {
   username:string="";
-  slides;
+  slides=[];
+  carts=[];
 
   constructor(public db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ItemsPage');
+    console.log('ionViewDidLoad CartPage');
   }
 
-  SendCart(item){
-    this.db.object('user/'+this.username+'/cart/'+item).set({
-      quantity:"1"
-    });
-    var Alert="'"+this.slides[item]["title"]+"' Added to cart";
+  RemoveCart(item){
+    this.db.object('user/'+this.username+'/cart/'+item).remove();
+    var Alert="'"+this.slides[item]["title"]+"' Removed to cart";
     this.Alert("Cart", Alert);
   }
-
-  GoCart(){
-    this.navCtrl.push(CartPage, {
-      username:this.username
-    });
-  }
-
 
   ngOnInit(): void {
     this.username= this.navParams.get("username");
     this.db.object('/Productos').valueChanges().subscribe(data => {
       this.slides=data;
     });
-    
+    this.db.object('/user/'+this.username+'/cart').valueChanges().subscribe(data => {
+      if(data==null){
+        this.carts=[];
+      }
+      else{
+        this.carts=data;
+      }
+      console.log(data);
+    });
   }
 
   Alert(title:string, nessage:string) {
@@ -57,3 +56,10 @@ export class ItemsPage  implements OnInit {
     alert.present();
   }
 }
+
+/**
+ * Generated class for the ItemsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */

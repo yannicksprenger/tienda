@@ -9,15 +9,39 @@
   <ion-navbar>
     <ion-title>items</ion-title>
   </ion-navbar>
-
+  <button (click)="GoCart()" ion-button color="primary">
+    <ion-icon name="cart"></ion-icon>
+  </button>
 </ion-header>
 
 <ion-content padding>
+  <div class="container top-slider"  *ngIf="slides > 0">
+    <ion-slides pager autoplay="5000" loop="true" speed="1000">
+      <ion-slide *ngFor="let slide of slides">
+        <img [src]="slide.image" class="slide-image"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+      
+  <ion-list >
+    <ion-item-sliding *ngFor="let slide of slides; let i = index">
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="slide.image">
+        </ion-avatar>
+        <h2>{{slide.title}}</h2>
+        <p>{{slide.description}}</p>
+      </ion-item>
+      <ion-item-options side="left">
+        <button (click)="SendCart(i)" ion-button color="primary">
+          <ion-icon name="cart"></ion-icon>
+          Añadir al carrito
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-input type="text" [(ngModel)]="message"></ion-input>
-    <button ion-button icon-only (click)="SendCart(1)"><ion-icon name="cart"></ion-icon></button>
-    <button ion-button icon-only (click)="SendCart(2)"><ion-icon name="cart"></ion-icon></button>
   </ion-toolbar>
 </ion-footer>
