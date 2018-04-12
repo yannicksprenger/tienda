@@ -21,7 +21,7 @@ export class HomePage{
     alert.present();
   }
 
-  LogaUser(){
+  LoginUser(){
     if(/^[a-zA-Z0-9]+$/.test(this.username)){
       this.nav.setRoot(ItemsPage, {
         username:this.username
