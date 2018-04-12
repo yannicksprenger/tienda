@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ItemsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding >
+  <ion-list *ngIf="slides.length > 0 && carts.length > 0">
+    <ion-item-sliding *ngFor="let cart of carts; let i = index">
+      
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="slides[i].image">
+        </ion-avatar>
+        <h2>{{slides[i].title}}</h2>
+        <p>{{slides[i].description}}</p>
+      </ion-item>
+      <ion-item-options side="left">
+        <button (click)="RemoveCart(i)" ion-button color="primary">
+          <ion-icon name="md-trash"></ion-icon>
+          Sacar de el carrito
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <h2>Total ${{total}}</h2>
+  </ion-toolbar>
+</ion-footer>
