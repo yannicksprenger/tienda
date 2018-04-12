@@ -5,12 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-<<<<<<< HEAD
 import { ProfilePage } from '../pages/profile/profile';
-=======
 import { ItemsPage } from '../pages/items/items';
 import * as firebase from 'firebase';
->>>>>>> e7495a099bccb395b901237a27f3b8e6a48184a4
 
 @Component({
   templateUrl: 'app.html'
@@ -29,11 +26,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-<<<<<<< HEAD
-      { title: 'Profile', component: ProfilePage}
-=======
+      { title: 'Profile', component: ProfilePage},
       { title: 'Items', component: ItemsPage },
->>>>>>> e7495a099bccb395b901237a27f3b8e6a48184a4
     ];
 
   }

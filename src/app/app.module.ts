@@ -29,12 +29,9 @@ var config = {
     MyApp,
     HomePage,
     ListPage,
-<<<<<<< HEAD
-    ProfilePage
-=======
+    ProfilePage,
     ItemsPage,
     CartPage
->>>>>>> e7495a099bccb395b901237a27f3b8e6a48184a4
   ],
   imports: [
     BrowserModule,
@@ -47,12 +44,9 @@ var config = {
     MyApp,
     HomePage,
     ListPage,
-<<<<<<< HEAD
-    ProfilePage
-=======
+    ProfilePage,
     ItemsPage,
     CartPage
->>>>>>> e7495a099bccb395b901237a27f3b8e6a48184a4
   ],
   providers: [
     StatusBar,
