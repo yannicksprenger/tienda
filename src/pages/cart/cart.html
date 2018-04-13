@@ -13,22 +13,21 @@
 </ion-header>
 
 <ion-content padding >
-  <ion-list *ngIf="slides.length > 0 && carts.length > 0">
-    <ion-item-sliding *ngFor="let cart of carts; let i = index">
-      
-      <ion-item>
-        <ion-avatar item-start>
-          <img [src]="slides[i].image">
-        </ion-avatar>
-        <h2>{{slides[i].title}}</h2>
-        <p>{{slides[i].description}}</p>
-      </ion-item>
-      <ion-item-options side="left">
-        <button (click)="RemoveCart(i)" ion-button color="primary">
-          <ion-icon name="md-trash"></ion-icon>
-          Sacar de el carrito
-        </button>
-      </ion-item-options>
+  <ion-list *ngIf="slides.length > 0 && cartSize > 0">
+    <ion-item-sliding *ngFor="let cart of inCart">
+        <ion-item *ngIf="Real(cart)">
+          <ion-avatar item-start>
+            <img [src]="slides[cart].image">
+          </ion-avatar>
+          <h2>{{slides[cart].title}}</h2>
+          <p>{{slides[cart].description}}</p>
+        </ion-item>
+        <ion-item-options side="left">
+          <button (click)="RemoveCart(cart)" ion-button color="primary">
+            <ion-icon name="md-trash"></ion-icon>
+            Sacar de el carrito
+          </button>
+        </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 </ion-content>

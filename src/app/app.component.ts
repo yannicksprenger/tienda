@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ItemsPage } from '../pages/items/items';
+import { CartPage } from '../pages/cart/cart';
 import * as firebase from 'firebase';
 
 @Component({
@@ -26,6 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Items', component: ItemsPage },
+      { title: 'cart', component: CartPage },
     ];
 
   }

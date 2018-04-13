@@ -17,6 +17,8 @@ export class CartPage {
   username:string="";
   slides:any=[];
   carts:any=[];
+  inCart:any=[];
+  cartSize=0;
   total;
 
   constructor(public db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController) {
@@ -41,12 +43,17 @@ export class CartPage {
       this.total=0;
       if(data==null){
         this.carts=[];
+        this.inCart=[];
+        this.cartSize=0;
       }
       else{
         this.carts=data;
+        this.cartSize=1;
+        this.inCart=[];
         for (let cart in this.carts) {
           this.total=this.total+this.slides[cart].price;
-          console.log(cart);
+          this.inCart.push(cart); 
+          console.log(this.inCart);
         }
       }
       console.log(data);
@@ -61,8 +68,16 @@ export class CartPage {
     });
     alert.present();
   }
-}
 
+  Real(item){
+    if(item==undefined){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+}
 /**
  * Generated class for the ItemsPage page.
  *

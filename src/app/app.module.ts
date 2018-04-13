@@ -13,6 +13,7 @@ import { CartPage } from '../pages/cart/cart';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 
 var config = {
   apiKey: "AIzaSyB9mZNngbQP9Hjo90fQCpRbKUaNNfnCtSo",
@@ -29,7 +30,7 @@ var config = {
     HomePage,
     ListPage,
     ItemsPage,
-    CartPage
+    CartPage,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +44,12 @@ var config = {
     HomePage,
     ListPage,
     ItemsPage,
-    CartPage
+    CartPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
